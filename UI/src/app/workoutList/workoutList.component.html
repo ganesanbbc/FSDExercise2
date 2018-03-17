@@ -1,0 +1,37 @@
+ 
+<a href="#!/login" class="btn btn-link btn-lg"><h3>Logout</h3></a>
+<div class="container">
+  <div class="jumbotron">
+    <h3 style="text-align:center" class="text-primary">WorkOut Portal</h3>
+  </div>
+<div class="panel panel-primary">
+    <div class="panel-heading"> 
+  <h2>Workout List</h2>
+    </div>
+        <div class="container">
+  <div class="table-responsive">     
+  <table  class="table table-hover">
+    <thead>
+      <tr>
+        <th style="text-align:center"><h5>Workout Id</h5></th>
+        <th style="text-align:center"><h5>Title</h5></th>
+        <th style="text-align:center"><h5>Calories Burnt Per Unit Time</h5></th>
+        <th style="text-align:center"><h5>Unit Time</h5></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let workout of workoutList; let i = index" (click)="WorkoutTxnredirect(i)" [class.active]="i == selectedRow">
+        <td style="text-align:center">{{workout[0]}}</td>
+        <td style="text-align:center">{{workout[2]}}</td>
+        <td style="text-align:center" >{{workout[1]}}</td>
+        <td style="text-align:center">{{workout[3]}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="form-actions">
+    <button class="btn btn-info btn-lg" (click)="redirect()">Add</button>
+   </div>
+</div>
+    </div>
+</div>
