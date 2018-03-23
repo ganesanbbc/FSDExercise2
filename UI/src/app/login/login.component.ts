@@ -2,31 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../login.service';
 import { AlertService } from '../alert.service';
+import { DataServiceService } from '../data-service.service';
+import { UserDataService } from '../user-data.service';
 import { Input } from '@angular/core';
-import { DataService } from '../data.service';
-import { UserDataService } from '../userData.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers:[LoginService]})
+  providers:[LoginService]
+})
 export class LoginComponent implements OnInit {
 
   model: any = {};
   loading = false;
-  constructor(
+   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private loginService: LoginService,
     private alertService: AlertService,
-    private dataService: DataService,
+    private dataService: DataServiceService,
     private userDataService: UserDataService
-  ) { }
+   ) { }
 
-  ngOnInit() {
-  }
-
+   ngOnInit() {
+   }
   login() {
     this.loading = true;
     this.loginService.login(this.model.username, this.model.password)

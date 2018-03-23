@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Workout } from './models/workout';
-import { ServiceUrlProviderService } from './service-url-provider.service';
+import { Workout } from './structure/workout';
+import { BaseurlService } from './baseurl.service';
 
 @Injectable()
 export class WorkoutService {
@@ -10,7 +10,7 @@ export class WorkoutService {
   private workoutUrl : string;
   constructor(
     private http: HttpClient,
-     private urlProv: ServiceUrlProviderService
+     private urlProv: BaseurlService
   ) {
     this.workoutUrl = urlProv.getCompleteServiceUrl("workout");
    }
@@ -19,3 +19,4 @@ export class WorkoutService {
     return this.http.post<any>(this.workoutUrl, workout);
   }
 }
+

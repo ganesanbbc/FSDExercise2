@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { WorkoutTxnService } from './workoutTxn.service';
+import { WorkouttxnService } from './workouttxn.service';
 
-describe('WorkoutTxnService', () => {
+describe('WorkouttxnService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [WorkoutTxnService]
+      providers: [WorkouttxnService]
     });
   });
 
-  it('should be created', inject([WorkoutTxnService], (service: WorkoutTxnService) => {
+  it('should be created', inject([WorkouttxnService], (service: WorkouttxnService) => {
     expect(service).toBeTruthy();
   }));
 });

@@ -1,45 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { WorkoutTxnService } from '../workoutTxn.service';
+import { WorkouttxnService } from '../workouttxn.service';
 import { Router } from '@angular/router';
 import { AlertService } from '../alert.service';
-import { Input } from '@angular/core';
-import { User } from '../models/user';
-import { DataService } from '../data.service';
-import {WorkoutListService} from '../workoutList.service';
+import { User } from '../structure/user';
+import { DataServiceService } from '../data-service.service';
+import {WorkoutListService} from '../workout-list.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './workoutTxn.component.html',
-  styleUrls: ['./workoutTxn.component.css'],
+  selector: 'app-workouttxn',
+  templateUrl: './workouttxn.component.html',
+  styleUrls: ['./workouttxn.component.css'],
   providers:[
-    WorkoutTxnService,
+    WorkouttxnService,
     WorkoutListService
-    ]
+  ]
 })
-export class WorkoutTxnComponent implements OnInit {
+export class WorkouttxnComponent implements OnInit {
 
-  user:any={};
-  workout: any = {};
+ 
+  workoutTxn: any = {};
   loading = false;
   workoutTxnList: any=[];
+  datemod : string;
   constructor(
     private router: Router,
-    private workoutTxnService: WorkoutTxnService,
+    private WorkouttxnService: WorkouttxnService,
     private alertService: AlertService,
-    private dataService: DataService
+    private dataService: DataServiceService
   ) { 
-    this.workoutTxnService.getWorkoutTxnList(this.user);
+    
   }
 
   ngOnInit() {
-    this.workout=this.dataService;
-    console.log("workoutTxnService workout: "+this.workout.workoutId+" **data: "+this.dataService.getWorkoutId());
-    this.workoutTxnService.getWorkoutTxnList(this.dataService.workoutId)
+  }
+  createWorkoutTxn() {
+    this.loading = true;
+    this.workoutTxn.workout=this.dataService;
+    var startDate = new Date(this.workoutTxn.startTime).toISOString();
+    this.workoutTxn.startTime=startDate.replace('Z','');
+    var endDate = new Date(this.workoutTxn.stopTime).toISOString();
+    this.workoutTxn.stopTime=endDate.replace('Z','');
+    this.WorkouttxnService.createWorkoutTxn(this.workoutTxn)
         .subscribe(
             data => {
-               
-               this.workoutTxnList=data;
-               console.log("Response: "+this.workoutTxnList);
+                this.alertService.success('Transaction Successfully Added', true);
+                this.router.navigate(['/workoutTxn']);
             },
             error => {
                 this.alertService.error(error.error.message);
@@ -47,9 +52,6 @@ export class WorkoutTxnComponent implements OnInit {
             });
   }
   redirect() {
-    this.router.navigate(['./workoutTxnAdd']);
-  }
-  backRedirect() {
-    this.router.navigate(['./workoutList']);
+    this.router.navigate(['./workoutTxn']);
   }
 }

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { WorkoutService } from '../workout.service';
 import { Router } from '@angular/router';
 import { AlertService } from '../alert.service';
-import { DataService } from '../data.service';
-import { UserDataService } from '../userData.service';
+import { DataServiceService } from '../data-service.service';
+import { UserDataService } from '../user-data.service';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-workout',
   templateUrl: './workout.component.html',
   styleUrls: ['./workout.component.css'],
   providers:[WorkoutService]
@@ -21,8 +21,9 @@ export class WorkoutComponent implements OnInit {
     private router: Router,
     private workoutService: WorkoutService,
     private alertService: AlertService,
-    private dataService: DataService,
-    private userDataService: UserDataService
+    private dataService: DataServiceService,
+    private userDataService: UserDataService,
+   
   ) { }
 
   ngOnInit() {
@@ -33,7 +34,6 @@ defineWorkout() {
     this.workout.user=this.userDataService;
     this.dataService.calBurntPerUnitTime=this.workout.calBurntPerUnitTime;
     this.dataService.unitTime=this.workout.unitTime;
-    console.log("*************dataService: "+this.dataService.calBurntPerUnitTime+"****"+this.dataService.unitTime);
     this.workoutService.defineWorkout(this.workout)
         .subscribe(
             data => {

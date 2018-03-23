@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('workout-portal-ui App', () => {
+describe('workout-portal App', () => {
   let page: AppPage;
 
   beforeEach(() => {

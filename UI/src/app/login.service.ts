@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import {BaseurlService} from './baseurl.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ServiceUrlProviderService } from './service-url-provider.service';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class LoginService {
@@ -9,7 +9,7 @@ export class LoginService {
   private loginUrl : string;
   constructor(
     private http: HttpClient,
-    private urlProv: ServiceUrlProviderService
+    private urlProv: BaseurlService
   ) { 
     this.loginUrl = urlProv.getCompleteServiceUrl("user/login");
   }

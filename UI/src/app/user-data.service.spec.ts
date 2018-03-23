@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { UserDataService } from './UserData.service';
+import { UserDataService } from './user-data.service';
 
 describe('UserDataService', () => {
   beforeEach(() => {

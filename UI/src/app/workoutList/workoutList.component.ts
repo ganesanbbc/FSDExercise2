@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { WorkoutListService } from '../workoutList.service';
+import { WorkoutListService } from '../workout-list.service';
 import { Router } from '@angular/router';
 import { AlertService } from '../alert.service';
-import { DataService } from '../data.service';
-import { UserDataService } from '../userData.service';
+import { DataServiceService } from '../data-service.service';
+import { UserDataService } from '../user-data.service';
 import {LoginService} from '../login.service';
 
-
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './workoutList.component.html',
-  styleUrls: ['./workoutList.component.css'],
+  selector: 'app-workoutlist',
+  templateUrl: './workoutlist.component.html',
+  styleUrls: ['./workoutlist.component.css'],
   providers:[
     WorkoutListService,
     LoginService
     ]
 })
-export class WorkoutListComponent implements OnInit {
+export class WorkoutlistComponent implements OnInit {
 
   workout: any = {};
   user: any={};
@@ -27,7 +26,7 @@ export class WorkoutListComponent implements OnInit {
     private router: Router,
     private workoutListService: WorkoutListService,
     private alertService: AlertService,
-    private dataService: DataService,
+    private dataService: DataServiceService,
     private userDataService: UserDataService
   ) { 
     this.workoutListService.getWorkoutList(this.userDataService.userId);

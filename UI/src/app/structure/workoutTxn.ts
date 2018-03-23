@@ -1,8 +1,9 @@
 import { Workout } from './workout'; 
+import { DlDateAdapter, DlDateAdapterNative } from 'angular-bootstrap-datetimepicker';
 
 export class WorkoutTxn {
-    startTime: String ;
-    stopTime: String ;
+    startTime: string ;
+    stopTime: string ;
     duration: number;
     calBurnt: string;
     workout: Workout;

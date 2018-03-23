@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ServiceUrlProviderService } from './service-url-provider.service';
+import { BaseurlService } from './baseurl.service';
 
 @Injectable()
 export class WorkoutListService {
@@ -9,7 +9,7 @@ export class WorkoutListService {
   private getWorkoutListUrl : string;
   constructor(
     private http: HttpClient,
-    private urlProv: ServiceUrlProviderService
+    private urlProv: BaseurlService
   ) { 
      this.getWorkoutListUrl = urlProv.getCompleteServiceUrl("workout");
   }

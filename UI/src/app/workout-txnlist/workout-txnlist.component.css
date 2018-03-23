@@ -72,44 +72,44 @@ body {
     }
   }
   .add{
-   text-align: right;
-   
-  }
-  button:active 
-  {
-    background: #292929;
-    background: linear-gradient(#393939, #292929);
-    box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
-    top: 1px;
-
-  }
-  button:hover,
-   button:focus {
-    background: #0C6125;
-    background: linear-gradient(#393939, #292929);
-    color: #00fffc;
-    outline: none;
-    transition: 1s all;
-  }
-  button {
-    animation: input-entry 3s ease-in;
-    background: #B58900;
-    background: linear-gradient(#B58900, #B58900);
-    box-sizing: content-box;
-    border: 1px solid #B58900;
-    border-left-color: #B58900;
-    border-radius: 5px;
-    box-shadow: 0 2px 0 #000;
-    color:Black;
-    font-family: 'Cabin', helvetica, arial, sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    height: 40px;
-    line-height: 40px;
-    margin: 20px 200px;
-    padding: 0;
-    position: relative;
-    text-shadow: 0 -1px 0 #B58900;
-    width: 100px;
-    transition: 1s all;
-  }
+    text-align: right;
+    
+   }
+   button:active 
+   {
+     background: #292929;
+     background: linear-gradient(#393939, #292929);
+     box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+     top: 1px;
+ 
+   }
+   button:hover,
+    button:focus {
+     background: #0C6125;
+     background: linear-gradient(#393939, #292929);
+     color: #00fffc;
+     outline: none;
+     transition: 1s all;
+   }
+   button {
+     animation: input-entry 3s ease-in;
+     background: #B58900;
+     background: linear-gradient(#B58900, #B58900);
+     box-sizing: content-box;
+     border: 1px solid #B58900;
+     border-left-color: #B58900;
+     border-radius: 5px;
+     box-shadow: 0 2px 0 #000;
+     color:Black;
+     font-family: 'Cabin', helvetica, arial, sans-serif;
+     font-size: 13px;
+     font-weight: 400;
+     height: 40px;
+     line-height: 40px;
+     margin: 20px 200px;
+     padding: 0;
+     position: relative;
+     text-shadow: 0 -1px 0 #B58900;
+     width: 100px;
+     transition: 1s all;
+   }

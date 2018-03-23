@@ -1,10 +1,4 @@
-a {
-    cursor: pointer;
-}
-
-.help-block {
-    font-size: 12px;
-}
-.container {
-    background-image: url("workout2.jpg");
+.container
+{
+    height: 100%;
 }

@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ServiceUrlProviderService } from './service-url-provider.service';
+import { BaseurlService } from './baseurl.service';
 
 @Injectable()
-export class WorkoutTxnService {
-
-  private getWorkoutLisTxntUrl : string;
+export class WorkouttxnService {
+  private createWorkoutTxntUrl : string;
   constructor(
     private http: HttpClient,
-    private urlProv: ServiceUrlProviderService
+    private urlProv: BaseurlService
   ) { 
-      this.getWorkoutLisTxntUrl = urlProv.getCompleteServiceUrl("workoutTxn");
+      this.createWorkoutTxntUrl = urlProv.getCompleteServiceUrl("workoutTxn");
   }
 
-  getWorkoutTxnList(workoutId: Number): Observable<any>{
-    console.log("Url: "+this.getWorkoutLisTxntUrl+"/"+workoutId);
-    return this.http.get<any>(this.getWorkoutLisTxntUrl+"/"+workoutId);
+  createWorkoutTxn(workouTxn: any): Observable<any>{
+     console.log("Inside WorkoutTxnAddService");
+    return this.http.post<any>(this.createWorkoutTxntUrl,workouTxn);
   }
 
 }
